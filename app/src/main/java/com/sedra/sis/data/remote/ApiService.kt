@@ -8,18 +8,18 @@ import retrofit2.http.*
 interface ApiService {
 
     companion object {
-        const val BASE_URL = "http://mahmoude16.sg-host.com/"
+        const val BASE_URL = "http://mahmoude27.sg-host.com/"
     }
 
 
-    @POST("/sisapp/api/login")
+    @POST("/api/login")
     @FormUrlEncoded
     suspend fun login(
         @Field("email") email: String,
         @Field("password") password: String,
     ): BaseResponse<User>
 
-    @POST("/sisapp/api/register")
+    @POST("/api/register")
     @FormUrlEncoded
     suspend fun register(
         @Field("email") email: String,
@@ -31,7 +31,7 @@ interface ApiService {
         @Field("weight") weight: Int,
     ): BaseResponse<User>
 
-    @POST("/sisapp/api/editProfile")
+    @POST("/api/editProfile")
     @FormUrlEncoded
     suspend fun editProfile(
         @Header("Authorization") authorization: String,
@@ -43,25 +43,25 @@ interface ApiService {
         @Field("weight") weight: Int,
     ): BaseResponse<Int>
 
-    @POST("/sisapp/api/workout")
+    @POST("/api/workout")
     suspend fun getWorkouts(
         @Header("Authorization") authorization: String
     ): BaseResponse<List<Workout>>
 
 
-    @POST("/sisapp/api/department")
+    @POST("/api/department")
     suspend fun getShoppingDepartments(
         @Header("Authorization") authorization: String
     ): BaseResponse<List<Department>>
 
-    @POST("/sisapp/api/product")
+    @POST("/api/product")
     @FormUrlEncoded
     suspend fun getProduct(
         @Header("Authorization") authorization: String,
         @Field("id") id: Int,
     ): BaseResponse<Product>
 
-    @POST("/sisapp/api/complaints")
+    @POST("/api/complaints")
     @FormUrlEncoded
     suspend fun sendOpinion(
         @Header("Authorization") authorization: String,
@@ -70,7 +70,7 @@ interface ApiService {
     ): BaseResponse<Product>
 
 
-    @POST("/sisapp/api/askQuestion")
+    @POST("/api/askQuestion")
     @FormUrlEncoded
     suspend fun askQuestions(
         @Header("Authorization") authorization: String,
@@ -78,14 +78,14 @@ interface ApiService {
         @Field("req_body") body: String,
     ): BaseResponse<Product>
 
-    @POST("/sisapp/api/search")
+    @POST("/api/search")
     @FormUrlEncoded
     suspend fun searchProducts(
         @Header("Authorization") authorization: String,
         @Field("name") name: String,
     ): BaseResponse<List<Product>>
 
-    @POST("/sisapp/api/editUserImage")
+    @POST("/api/editUserImage")
     @Multipart
     suspend fun updateImage(
         @Header("Authorization") authorization: String,
@@ -94,7 +94,7 @@ interface ApiService {
     ): UpdateImageResponse
 
 
-    @POST("/sisapp/api/orders")
+    @POST("/api/orders")
     suspend fun sendOrder(
         @Header("Authorization") authorization: String,
         @Body cart: CartRequest,
